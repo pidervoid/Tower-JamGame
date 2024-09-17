@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8ojl0d3wd7sr"]
+
+[ext_resource type="Script" path="res://block_placer.gd" id="1_2nqm7"]
+[ext_resource type="PackedScene" uid="uid://dxyuvod0671mq" path="res://shape.tscn" id="1_hnduf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6svk7"]
+size = Vector2(314, 322)
+
+[node name="lvl1" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 300)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_6svk7")
+
+[node name="BlockPlacer" type="Node2D" parent="."]
+script = ExtResource("1_2nqm7")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Shape" parent="Skeleton2D" instance=ExtResource("1_hnduf")]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(24, -37)
